@@ -21,10 +21,15 @@ class AddUser extends Component {
     // Event handler: When submit button is clicked, the user is added to parent state. To call, add to form element
     handleSubmit(e) {
         e.preventDefault();               // Prevents component from automatically reloading when form is submitted          
-        this.props.addUser1({             // Function passed as prop from parent so use this.props
+        this.props.addUser1({             // Function passed as prop from parent so use this.props... This adds new user to parent state.
             name: this.state.userName,    // These property names (name, id) must match the parent state's prop names as we're modifying/adding to that array
             id: this.state.id,
         });
+
+        this.setState({                   // Resets this component's state back to blank
+            userName: '',
+            id: '',
+        })
     }
 
     render() {
